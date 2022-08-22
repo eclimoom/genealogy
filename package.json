@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "source": "src/index.html",
-  "main": "index.js",
+  "main": "src/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,13 +16,19 @@
     "url": "git+https://github.com/eclimoom/genealogy.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "moom",
   "license": "MIT",
+  "private": true,
   "bugs": {
     "url": "https://github.com/eclimoom/genealogy/issues"
   },
   "homepage": "https://github.com/eclimoom/genealogy#readme",
   "devDependencies": {
-    "parcel": "^2.7.0"
+    "@parcel/compressor-brotli": "^2.7.0",
+    "@parcel/compressor-gzip": "^2.7.0",
+    "@parcel/transformer-sass": "2.7.0",
+    "eslint": "^8.22.0",
+    "parcel": "^2.7.0",
+    "sass": "^1.54.5"
   }
 }

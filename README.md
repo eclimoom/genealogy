@@ -3,19 +3,19 @@
 
 ## 全局安装 parcel
 
-``` bash
+```bash
  yarn add --dev parcel
  ```
 
 ## 创建项目、初始化npm
 
-``` bash
+```bash
 mkdir parcel-project && npm init -y
 ```
 
 ## 创建src目录和 index.html、index.js文件
 
-``` bash
+```bash
 mkdir src && cd $_ && touch index.html index.js
 ```
 
@@ -27,14 +27,15 @@ mkdir src && cd $_ && touch index.html index.js
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
+    "lint": "eslint",
     "build": "parcel build"
   }
 }
 ```
 
-## 运行
+## 启动服务
 
-``` bash
+```bash
 npm start
 ```
 
@@ -42,7 +43,7 @@ npm start
 
 ## 添加 gitignore
 
-``` bash
+```bash
 touch .gitignore
 ```
 
@@ -53,12 +54,13 @@ touch .gitignore
   "...": "...",
   "browserslist": "> 0.5%, last 2 versions, not dead",
 }
-``
+```
 
 ## 配置Prettier自动格式化代码
 
 ## 增加代理 proxy, 项目根目录添加.proxyrc文件
-``` bash
+
+```bash
 touch .proxyrc
 ```
 
@@ -71,4 +73,35 @@ touch .proxyrc
     }
   }
 }
+```
+
+## 增加scss、eslint
+
+```bash
+yarn add -D sass
+yarn add -D eslint
+npm init @eslint/config
+```
+
+### eslint package.json
+
+```json
+{
+  "...": "...",
+  "lint": "eslint"
+}
+```
+
+### compression
+
+Parcel supports compressing bundles using Gzip and Brotli.
+
+```bash
+yarn add @parcel/compressor-gzip @parcel/compressor-brotli --dev
+```
+
+```json
+"compressors": {
+    "*.{html,css,js,svg,map}": ["@parcel/compressor-gzip"]
+  }
 ```
