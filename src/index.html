@@ -5,10 +5,189 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/bootstrap.scss">
     <link rel="stylesheet" href="styles/app.scss">
 </head>
 <body>
-    <h1>Hello, parcel!</h1>
-    <script src="app.js"></script>
-</body>
+		
+	<!-- Navbar Start -->
+		<nav
+			class="
+				navbar navbar-expand-lg
+				fixed-top
+				navbar-custom
+			
+				nav-sticky
+			"
+		>
+			<div class="container">
+				<a class="navbar-brand" href="#">
+                    logo
+					
+				</a>
+
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav mx-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="#home">Home</a>
+						</li>
+						<!--end nav item-->
+						<li class="nav-item">
+							<a class="nav-link" href="#services">Services</a>
+						</li>
+						<!--end nav item-->
+						<li class="nav-item">
+							<a class="nav-link" href="#resume">Resume</a>
+						</li>
+						<!--end nav item-->
+						<li class="nav-item">
+							<a class="nav-link" href="#projects">Projects</a>
+						</li>
+						<!--end nav item-->
+						<li class="nav-item">
+							<a class="nav-link" href="#news">Blog</a>
+						</li>
+						<!--end nav item-->
+						<li class="nav-item">
+							<a class="nav-link" href="#contact">Contact</a>
+						</li>
+						<!--end nav item-->
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link dropdown-toggle"
+								href="javascript:void(0)"
+								id="navbarDropdown"
+								role="button"
+								data-toggle="dropdown"
+								aria-haspopup="true"
+								aria-expanded="false"
+								>Pages
+							</a>
+							<div
+								class="dropdown-menu rounded m-0"
+								aria-labelledby="navbarDropdown"
+							>
+								<div class="container mx-0 mx-md-0">
+									<div class="row">
+										<div class="col-md-12">
+											<a
+												class="dropdown-item"
+												href="#"
+												>Blog</a
+											>
+											<a
+												class="dropdown-item"
+												href="#"
+												>Blog Detail</a
+											>
+											<a
+												class="dropdown-item"
+												href="#"
+												>Portfolio</a
+											>
+											<a
+												class="dropdown-item"
+												href="#"
+												>Portfolio Detail</a
+											>
+										</div>
+										<!--end col-->
+									</div>
+									<!--end row-->
+								</div>
+								<!--end container-->
+							</div>
+						</li>
+						<!--end nav item-->
+					</ul>
+
+					<ul
+						class="
+							list-unstyled
+							mb-0
+							mt-2 mt-sm-0
+							social-icon
+							light-social-icon
+						"
+					>
+						<li class="list-inline-item">
+							<a href="javascript:void(0)"
+								><i class="mdi mdi-facebook"></i
+							></a>
+						</li>
+						<li class="list-inline-item">
+							<a href="javascript:void(0)"
+								><i class="mdi mdi-twitter"></i
+							></a>
+						</li>
+						<li class="list-inline-item">
+							<a href="javascript:void(0)"
+								><i class="mdi mdi-instagram"></i
+							></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--end container-->
+		</nav>
+		<!--end navbar-->
+		<!-- Navbar End -->
+
+		<!-- HOME START-->
+		<section
+			class="bg-home"
+		>
+			<div class="bg-overlay"></div>
+			<div class="container position-relative" style="z-index: 1">
+				<div class="row mt-5 mt-sm-0 justify-content-center">
+					<div class="col-lg-12 text-center">
+						<div class="title-heading">
+							<h3 class="heading text-light title-dark mt-3">
+								I Am
+								<span
+									class="element text-primary"
+									data-elements="Web Designer, Web Developer, Photographer"
+								></span>
+							</h3>
+							<p class="para-desc mx-auto text-white-50">
+								Obviously I'm a Web Designer. Web Developer with
+								over 3 years of experience. Experienced with all
+								stages of the development cycle for dynamic web
+								projects.
+							</p>
+							<div class="mt-4">
+								<a
+									href="javascript:void(0)"
+									class="btn btn-primary rounded"
+									>Download CV
+									<i
+										data-feather="download"
+										class="fea icon-sm"
+									></i
+								></a>
+							</div>
+						</div>
+					</div>
+					<!--end col-->
+				</div>
+				<!--end row-->
+			</div>
+			<!--end container-->
+			<a
+				href="#about"
+				data-scroll-nav="1"
+				class="
+					mouse-icon mouse-icon-white
+					rounded-pill
+					bg-transparent
+					mouse-down
+				"
+			>
+				<span class="wheel position-relative d-block mover"></span>
+			</a>
+		</section>
+		<!--end section-->
+		<!-- HOME END-->
+
+	</body>
 </html>

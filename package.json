@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "source": "src/index.html",
-  "main": "src/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel",
@@ -30,5 +29,9 @@
     "eslint": "^8.22.0",
     "parcel": "^2.7.0",
     "sass": "^1.54.5"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.0",
+    "cytoscape": "^3.22.1"
   }
 }
