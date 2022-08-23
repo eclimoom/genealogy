@@ -1,8 +1,127 @@
-body{
-        background: #f3f0ec;
+$navbarHeight: 64px;
+.navbar {
+  padding: 0;
+  background: none rgb(243, 240, 236);
+  box-shadow: rgb(45 43 36 / 20%) 0px 0px 20px 0px;
+
+  .navbar-brand {
+    text-transform: capitalize;
+  }
+  .navbar-nav {
+    justify-content: stretch;
+    align-items: stretch;
+    height: $navbarHeight;
+    .nav-item {
+      line-height: $navbarHeight;
+      .active,
+      &.active .nav-link,
+      &:hover {
+        color: rgb(230, 113, 110);
+      }
+      &.active .nav-link {
+        background: rgb(36, 32, 72);
+      }
+    }
+  }
 }
-.bg-home{
-    margin-top: 56px;
-    height: calc(100vh - 56px);
-    background-color: #ee00ff38;
+
+.bg-home {
+  margin-top: $navbarHeight;
+  height: calc(100vh - $navbarHeight);
+}
+
+.left-pane {
+  width: 376px;
+  background: #fff;
+  box-shadow: rgb(45 43 36 / 20%) 0px 0px 20px 0px;
+  z-index: 5;
+  // profile start
+  .profile {
+    background-color: rgb(36, 32, 72);
+    color: rgb(255, 255, 255);
+    padding: 1.5rem 1rem 1rem;
+    position: relative;
+    text-align: center;
+    .btn-close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: #fff;
+      border-radius: 2rem;
+      padding: 0;
+      opacity: 0.8;
+    }
+    .avatar-wrap {
+      display: block;
+      margin: 0px 0px 0.25rem;
+      padding: 0px;
+      border-radius: 4px;
+      img {
+        backface-visibility: hidden;
+        display: inline-block;
+        border-radius: 50%;
+        border-width: 2px;
+        border-color: rgb(255, 255, 255);
+        border-style: solid;
+        height: 80px;
+        width: 80px;
+        background: rgb(255, 255, 255);
+      }
+    }
+    .name {
+      font-size: 1.75rem;
+    }
+    .lifespa {
+      font-size: 1.125rem;
+      margin-bottom: 0;
+    }
+  }
+  // profile end
+
+  // 2. 功能 start
+  .user-tools {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    .btn {
+      border: none;
+      box-shadow: none;
+      .icon {
+        margin-bottom: 8px;
+      }
+      font-size: 13px;
+    }
+  }
+  // 2. 功能 end
+
+  // 3.profile-editor start
+  .view-profile {
+    border-bottom: 1px solid rgb(220, 215, 210);
+    padding-bottom: 16px;
+    .btn-view-profile {
+      width: 80%;
+      display: block;
+    }
+  }
+  // 3.profile-editor end
+}
+.tree-wrap {
+  border: 1px solid #f00;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  color: #242048;
+  border: 1px solid #242048;
+  &-circle {
+    border-radius: 20px;
+  }
+  &-add {
+    background: url(../assets/icons/add.svg) center no-repeat;
+  }
+  &-tree {
+    background: url(../assets/icons/tree.svg) center no-repeat;
+  }
 }

@@ -1,22 +1,23 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": "eslint:recommended",
-    "overrides": [
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest"
-    },
-    "rules": {
-      "linebreak-style": "off",
-      "no-console": "off",
-      "vars-on-top": "off",
-      "func-names": "off",
-      "no-restricted-syntax": "off",
-      "no-plusplus": "off",
-      "no-loop-func": "off",
-      "import/prefer-default-export": "off"
-    }
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": "eslint:recommended",
+  "overrides": [],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "rules": {
+    "linebreak-style": "off",
+    "no-console": "off",
+    "vars-on-top": "off",
+    "func-names": "off",
+    "no-restricted-syntax": "off",
+    "no-plusplus": "off",
+    "no-loop-func": "off",
+    "import/prefer-default-export": "off"
+  }
 }

@@ -1,25 +1,25 @@
-
-# 使用parcel创建前端项目
+# 使用 parcel 创建前端项目
 
 ## 全局安装 parcel
 
 ```bash
  yarn add --dev parcel
- ```
+```
 
-## 创建项目、初始化npm
+## 创建项目、初始化 npm
 
 ```bash
 mkdir parcel-project && npm init -y
 ```
 
-## 创建src目录和 index.html、index.js文件
+## 创建 src 目录和 index.html、index.js 文件
 
 ```bash
-mkdir src && cd $_ && touch index.html index.js
+mkdir {src,src/js,src/scss}
+cd $_ && touch index.html index.js
 ```
 
-## 添加Package scripts, and source
+## 添加 Package scripts, and source
 
 ```json
 {
@@ -52,13 +52,13 @@ touch .gitignore
 ```json
 {
   "...": "...",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "browserslist": "> 0.5%, last 2 versions, not dead"
 }
 ```
 
-## 配置Prettier自动格式化代码
+## 配置 Prettier 自动格式化代码
 
-## 增加代理 proxy, 项目根目录添加.proxyrc文件
+## 增加代理 proxy, 项目根目录添加.proxyrc 文件
 
 ```bash
 touch .proxyrc
@@ -75,7 +75,7 @@ touch .proxyrc
 }
 ```
 
-## 增加scss、eslint
+## 增加 scss、eslint
 
 ```bash
 yarn add -D sass
