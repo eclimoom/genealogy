@@ -1,0 +1,117 @@
+{
+  "nodes": [
+    {
+      "data": {
+        "id": "glyph1_1",
+        "weight": 9
+      }
+    },
+    {
+      "data": {
+        "id": "glyph1_2",
+        "weight": 10
+      }
+    },
+    {
+      "data": {
+        "id": "glyph2_1",
+        "weight": 11
+      }
+    },
+    {
+      "data": {
+        "id": "glyph2_2",
+        "weight": 50
+      }
+    },
+    {
+      "data": {
+        "id": "glyph3",
+        "weight": 110
+      }
+    },
+    {
+      "data": {
+        "id": "glyph4",
+        "weight": 10
+      }
+    },
+    {
+      "data": {
+        "id": "glyph5_1",
+        "weight": 20
+      }
+    },
+    {
+      "data": {
+        "id": "glyph5_2",
+        "weight": 21
+      }
+    }
+  ],
+  "edges": [
+    {
+      "data": {
+        "source": "glyph1_1",
+        "target": "glyph2_1"
+      },
+      "classes": "taxi"
+    },
+    {
+      "data": {
+        "source": "glyph1_2",
+        "target": "glyph2_1"
+      },
+      "classes": "taxi"
+    },
+    {
+      "data": {
+        "source": "glyph2_1",
+        "target": "glyph3"
+      },
+      "classes": "taxi"
+    },
+    {
+      "data": {
+        "source": "glyph2_2",
+        "target": "glyph3"
+      },
+      "classes": "taxi"
+    },
+    {
+      "data": {
+        "source": "glyph2_1",
+        "target": "glyph3"
+      },
+      "classes": "taxi"
+    },
+    {
+      "data": {
+        "source": "glyph1_1",
+        "target": "glyph4"
+      },
+      "classes": "taxi"
+    },
+    {
+      "data": {
+        "source": "glyph1_2",
+        "target": "glyph4"
+      },
+      "classes": "taxi taxi-m"
+    },
+    {
+      "data": {
+        "source": "glyph5_1",
+        "target": "glyph2_2"
+      },
+      "classes": "taxi"
+    },
+    {
+      "data": {
+        "source": "glyph5_2",
+        "target": "glyph2_2"
+      },
+      "classes": "taxi "
+    }
+  ]
+}
