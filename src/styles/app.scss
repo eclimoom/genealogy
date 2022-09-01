@@ -29,7 +29,7 @@ $navbarHeight: 64px;
   margin-top: $navbarHeight;
   height: calc(100vh - $navbarHeight);
 }
-
+$profileHeight: 192px;
 .left-pane {
   width: 376px;
   background: #fff;
@@ -42,6 +42,7 @@ $navbarHeight: 64px;
     padding: 1.5rem 1rem 1rem;
     position: relative;
     text-align: center;
+    height: $profileHeight;
     .btn-close {
       position: absolute;
       right: 1rem;
@@ -103,6 +104,10 @@ $navbarHeight: 64px;
       width: 80%;
       display: block;
     }
+  }
+  .user-wrap {
+    height: calc(100vh - $profileHeight - $navbarHeight - 20px);
+    overflow: auto;
   }
   // 3.profile-editor end
 }
