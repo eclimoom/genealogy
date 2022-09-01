@@ -1,83 +1,146 @@
 import cytoscape from "cytoscape";
-import data from '../mock/data.json'
+import data from "../mock/data.json";
 import dagre from "cytoscape-dagre";
+import $ from "jquery";
+import male from '../assets/male.png';
+import female from '../assets/female.png';
 cytoscape.use(dagre);
 
+const styles = [
+  {
+    selector: "node",
+    style: {
+      label: "data(name)",
+      "text-wrap": "wrap",
+      // "text-opacity": 0.5,
+      "text-valign": "center",
+      "background-color": "white",
+      "background-opacity": 0.5,
+      height: 82,
+      width: 142,
+      shape: "roundrectangle", //cutrectangle roundrectangle
+    },
+  },
+  {
+    selector: ":selected",
+    style: {
+      label: "data(name)",
+      "text-valign": "center",
+      color: "#ffffff",
+      // "text-outline-color": "#242048",
+      // "text-outline-width": 1,
+      "background-color": "#242048",
+    },
+  },
 
-  var defaults = {
-    name: "breadthfirst", // dagre breadthfirst
-    // dagre algo options, uses default value on undefined
-    fit: true, // whether to fit the viewport to the graph
-    directed: true, // whether the tree is directed downwards (or edges can point in any direction if false)
-    padding: 50, // padding on fit
-    circle: false, // put depths in concentric circles if true, put depths top down if false
-    grid: false, // whether to create an even grid into which the DAG is placed (circle:false only)
-    spacingFactor: 1.75, // positive spacing factor, larger => more space between nodes (N.B. n/a if causes overlap)
-    boundingBox: undefined, // constrain layout bounds; { x1, y1, x2, y2 } or { x1, y1, w, h }
-    avoidOverlap: true, // prevents node overlap, may overflow boundingBox if not enough space
-    nodeDimensionsIncludeLabels: false, // Excludes the label when calculating node bounding boxes for the layout algorithm
-    roots: undefined, // the roots of the trees
-    maximal: false, // whether to shift nodes down their natural BFS depths in order to avoid upwards edges (DAGS only)
-    depthSort: function (a, b) {
-      return a.data("weight") - b.data("weight");
-    }, // a sorting function to order nodes at equal depth. e.g. function(a, b){ return a.data('weight') - b.data('weight') }
-    animate: false, // whether to transition the node positions
-    animationDuration: 500, // duration of animation in ms if enabled
-    animationEasing: undefined, // easing of animation if enabled,
-    animateFilter: function (node, i) {
-      return true;
-    }, // a function that determines whether the node should be animated.  All nodes animated by default on animate enabled.  Non-animated nodes are positioned immediately when the layout starts
-    ready: undefined, // callback on layoutready
-    stop: undefined, // callback on layoutstop
-    transform: function (node, position) {
-      return position;
-    }, // transform a given node position. Useful for changing flow direction in discrete layouts
-  };
+  {
+    selector: "edge",
+    style: {
+      "curve-style": "taxi",
+      "taxi-direction": "vertical", //['horizontal', 'leftward', 'rightward', 'vertical', 'upward', 'downward', 'auto']
+      "taxi-turn": "30",
+      width: 2,
+      // "target-arrow-shape": "triangle",
+      "line-color": "#a9a8ba",
+      "target-arrow-color": "#CECECE",
+    },
+  },
+  {
+    selector: "edge.taxi-female",
+    style: {
+      "line-color": "#743635",
+      // "taxi-direction": "vertical",
+      // "line-style": "dashed",
+      width: 1,
+      "line-opacity": 0.4,
+    },
+  },
+];
+
+let layout = {
+  name: "dagre", // breadthfirst
+  // dagre algo options, uses default value on undefined
+  // nodeSep: 50, // the separation between adjacent nodes in the same rank
+  // edgeSep: 100, // the separation between adjacent edges in the same rank
+  // rankSep: 50, // the separation between each rank in the layout
+  rankDir: "TB", // 'TB' for top to bottom flow, 'LR' for left to right,
+  // avoidOverlap: false,
+  // align: undefined, // alignment for rank nodes. Can be 'UL', 'UR', 'DL', or 'DR', where U = up, D = down, L = left, and R = right
+  // acyclicer: "greedy", // If set to 'greedy', uses a greedy heuristic for finding a feedback arc set for a graph.
+  // // A feedback arc set is a set of edges that can be removed to make a graph acyclic.
+  // ranker: "network-simplex", // Type of algorithm to assign a rank to each node in the input graph. Possible values: 'network-simplex', 'tight-tree' or 'longest-path'
+  // // general layout options
+  fit: true, // whether to fit to viewport
+  padding: 50,
+  stop: function ({ cy }) {
+    cy.zoom(0.8);
+    cy.center();
+    let node = cy.$(":selected");
+    if(node){
+      let data = node.data();
+      handleSelected(data);
+    }else {
+      console.log("no select user!");
+    }
+  },
+};
+
+const _$editor = $("#profile-editor");
+const _$profile = $("#profile");
+const $avatar = _$profile.find("#avatar");
+const $name = _$profile.find(".name");
+const $lifespa = _$profile.find(".lifespa");
+const $gender = _$editor.find("input:radio[name='gender']");
+const $fname = _$editor.find("#fname");
+const $birthdate = _$editor.find("#birthdate");
+const $birthAddress = _$editor.find("#birthAddress");
+const $livingAddress = _$editor.find("#livingAddress");
+const $userId = $("#user-id");
 
 let cy = cytoscape({
   container: document.getElementById("cy"),
   boxSelectionEnabled: false,
-  autounselectify: true,
-
-  style: [
-    {
-      selector: "node",
-      style: {
-        content: "data(id)",
-        "background-color": "#ff00ff",
-      },
-    },
-
-    {
-      selector: "edge",
-      style: {
-        "curve-style": "bezier",
-        "target-arrow-shape": "triangle",
-        "line-color": "#dd4de2",
-        "target-arrow-color": "#dd4de2",
-        opacity: 0.5,
-      },
-    },
-    {
-      selector: "edge.taxi",
-      style: {
-        "curve-style": "taxi", // taxi、
-        "taxi-direction": "downward", //vertical
-        // "taxi-turn": 20,
-        // "taxi-turn-min-distance": 5,
-      },
-    },
-    {
-      selector: "edge.taxi-m",
-      style: {
-        "line-color": "#dd4de2",
-        // "taxi-turn": 20,
-        // "taxi-turn-min-distance": 5,
-      },
-    },
-  ],
-
+  autounselectify: false,
+  style: styles,
   elements: data,
-
-  layout: defaults,
+  selectionType: 'single',
+  layout,
 });
+
+
+cy.on('tap', 'node', function(evt){
+    const node = evt.target;
+    handleSelected(node.data());
+});
+
+/**
+ * const userInfo = {
+ *  id: "1712139752",
+ *  name: "jerry",
+ *  birthDate: null,
+ *  deathDate: null,
+ *  // families: [],
+ *  gender: "男",
+ *  isLiving: true,
+ *  portraitUrl: null,
+ * };
+*/
+
+$userId.text('您好, 9527');
+function handleSelected(data) {
+  setUserInfo(data);
+  
+}
+function setUserInfo(data) {
+  let { name, gender, birthDate, isLiving, deathDate, birthAddress, livingAddress, families, portraitUrl } = data;
+  $fname.val(name);
+  $name.text(name);
+  $lifespa.text(isLiving ? "在世": "过世");
+  let _g = ["男", "女"].includes(gender) ? gender : "未知";
+  $gender.filter(`[value=${_g}]`).prop("checked", true);
+  $birthdate.val(birthDate);
+  $birthAddress.val(birthAddress);
+  $livingAddress.val(livingAddress);
+  let _portraitUrl = portraitUrl || (_g == "女" ? female : male);
+  $avatar.attr("src", _portraitUrl);
+}

@@ -3,49 +3,92 @@
     {
       "data": {
         "id": "glyph1_1",
-        "weight": 9
-      }
+        "name": "张三",
+        "birthDate": "",
+        "deathDate": "",
+        "birthAddress": "",
+        "livingAddress": "",
+        "gender": "男",
+        "isLiving": true,
+        "portraitUrl": null
+      },
+      "selected": true
     },
     {
       "data": {
         "id": "glyph1_2",
-        "weight": 10
+        "name": "李四",
+        "birthDate": "",
+        "deathDate": "",
+        "gender": "女",
+        "isLiving": true,
+        "portraitUrl": null
       }
     },
     {
       "data": {
         "id": "glyph2_1",
-        "weight": 11
+        "name": "张四1",
+        "birthDate": "",
+        "deathDate": "",
+        "gender": "",
+        "isLiving": true,
+        "portraitUrl": null
       }
     },
     {
       "data": {
         "id": "glyph2_2",
-        "weight": 50
+        "name": "张四2",
+        "birthDate": "",
+        "deathDate": "",
+        "gender": "男",
+        "isLiving": true,
+        "portraitUrl": null
       }
     },
     {
       "data": {
         "id": "glyph3",
-        "weight": 110
+        "name": "张四1",
+        "birthDate": "",
+        "deathDate": "",
+        "gender": "男",
+        "isLiving": true,
+        "portraitUrl": null
       }
     },
     {
       "data": {
         "id": "glyph4",
-        "weight": 10
+        "name": "张四1",
+        "birthDate": "",
+        "deathDate": "",
+        "gender": "男",
+        "isLiving": true,
+        "portraitUrl": null
       }
     },
     {
       "data": {
         "id": "glyph5_1",
-        "weight": 20
+        "name": "张四1",
+        "birthDate": "",
+        "deathDate": "",
+        "gender": "男",
+        "isLiving": true,
+        "portraitUrl": null
       }
     },
     {
       "data": {
         "id": "glyph5_2",
-        "weight": 21
+        "name": "张四1",
+        "birthDate": "",
+        "deathDate": "",
+        "gender": "男",
+        "isLiving": true,
+        "portraitUrl": null
       }
     }
   ],
