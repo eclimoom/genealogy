@@ -29,6 +29,8 @@
     "buffer": "^6.0.3",
     "eslint": "^8.22.0",
     "parcel": "^2.7.0",
+    "parcel-plugin-prettier": "^0.2.1",
+    "prettier": "2.7.1",
     "process": "^0.11.10",
     "sass": "^1.54.5",
     "util": "^0.12.4"
