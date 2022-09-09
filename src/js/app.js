@@ -68,7 +68,7 @@ let layout = {
   // align: undefined, // alignment for rank nodes. Can be 'UL', 'UR', 'DL', or 'DR', where U = up, D = down, L = left, and R = right
   // acyclicer: "greedy", // If set to 'greedy', uses a greedy heuristic for finding a feedback arc set for a graph.
   // // A feedback arc set is a set of edges that can be removed to make a graph acyclic.
-  // ranker: "network-simplex", // Type of algorithm to assign a rank to each node in the input graph. Possible values: 'network-simplex', 'tight-tree' or 'longest-path'
+  ranker: "network-simplex", // Type of algorithm to assign a rank to each node in the input graph. Possible values: 'network-simplex', 'tight-tree' or 'longest-path'
   // // general layout options
   fit: true, // whether to fit to viewport
   padding: 50,
@@ -144,3 +144,25 @@ function setUserInfo(data) {
   let _portraitUrl = portraitUrl || (_g == "女" ? female : male);
   $avatar.attr("src", _portraitUrl);
 }
+
+// 当前状态
+let stepName = '';
+function addRelation() {
+  stepName = 'add';
+  // 1.隐藏tools
+  $('.user-wrap').addClass('add-relation');
+  setUserInfo({});
+}
+// 添加关系
+$('body').on('click', '.add-relation-btn', function(){
+  addRelation();
+}).on('click', '#back-btn', function(){
+  let node = cy.$(":selected");
+    if(node){
+      let data = node.data();
+      $('.user-wrap').removeClass('add-relation');
+      handleSelected(data);
+    }else {
+      console.log("no select user!");
+    }
+})
