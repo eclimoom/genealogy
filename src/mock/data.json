@@ -28,7 +28,7 @@
     {
       "data": {
         "id": "glyph2_1",
-        "name": "张四1",
+        "name": "张四11",
         "birthDate": "",
         "deathDate": "",
         "gender": "",
@@ -61,7 +61,7 @@
     {
       "data": {
         "id": "glyph4",
-        "name": "张四1",
+        "name": "张四12",
         "birthDate": "",
         "deathDate": "",
         "gender": "男",
@@ -83,7 +83,17 @@
     {
       "data": {
         "id": "glyph5_2",
-        "name": "张四1",
+        "name": "张四3",
+        "birthDate": "",
+        "deathDate": "",
+        "gender": "男",
+        "isLiving": true,
+        "portraitUrl": null
+      }
+    },{
+      "data": {
+        "id": "glyph6_2",
+        "name": "张五",
         "birthDate": "",
         "deathDate": "",
         "gender": "男",
@@ -153,6 +163,13 @@
       "data": {
         "source": "glyph5_2",
         "target": "glyph2_2"
+      },
+      "classes": "taxi "
+    },
+    {
+      "data": {
+        "source": "glyph6_2",
+        "target": "glyph5_2"
       },
       "classes": "taxi "
     }

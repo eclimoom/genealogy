@@ -12,7 +12,6 @@ const styles = [
     style: {
       label: "data(name)",
       "text-wrap": "wrap",
-      // "text-opacity": 0.5,
       "text-valign": "center",
       "background-color": "white",
       "background-opacity": 0.5,
@@ -68,7 +67,7 @@ let layout = {
   // align: undefined, // alignment for rank nodes. Can be 'UL', 'UR', 'DL', or 'DR', where U = up, D = down, L = left, and R = right
   // acyclicer: "greedy", // If set to 'greedy', uses a greedy heuristic for finding a feedback arc set for a graph.
   // // A feedback arc set is a set of edges that can be removed to make a graph acyclic.
-  ranker: "network-simplex", // Type of algorithm to assign a rank to each node in the input graph. Possible values: 'network-simplex', 'tight-tree' or 'longest-path'
+  ranker: "tight-tree", // Type of algorithm to assign a rank to each node in the input graph. Possible values: 'network-simplex', 'tight-tree' or 'longest-path'
   // // general layout options
   fit: true, // whether to fit to viewport
   padding: 50,
